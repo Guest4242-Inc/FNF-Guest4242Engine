@@ -480,9 +480,9 @@ class TitleState extends MusicBeatState
               deleteCoolText();
               if (ngSpr != null) ngSpr.visible = false;
             case 9:
-              addMoreText('HOW DO I');
+              addMoreText('pizza');
             case 11:
-              addMoreText('PLAY THIS ENGINE?');
+              addMoreText('pizza');
             case 12:
               deleteCoolText();
             case 13:
