@@ -1,47 +1,73 @@
-# Compiling Friday Night Funkin'
+# 🎮 So You Wanna Build Friday Night Funkin' Guest4242 Engine?
 
-0. Setup
-    - Download Haxe from [Haxe.org](https://haxe.org)
-    - Download Git from [git-scm.com](https://www.git-scm.com)
-    - Do NOT download the repository using the Download ZIP button on GitHub or you may run into errors!
-    - Instead, open a command prompt and do the following steps...
-1. Run `cd the\directory\you\want\the\source\code\in` to specify which folder the command prompt is working in.
-    - For example, `cd C:\Users\YOURNAME\Documents` would instruct the command prompt to perform the next steps in your Documents folder.
-2. Run `git clone https://github.com/FunkinCrew/funkin.git` to clone the base repository.
-3. Run `cd funkin` to enter the cloned repository's directory.
-4. Run `git submodule update --init --recursive` to download the game's assets.
-    - NOTE: By performing this operation, you are downloading Content which is proprietary and protected by national and international copyright and trademark laws. See [the LICENSE.md file for the Funkin.assets](https://github.com/FunkinCrew/funkin.assets/blob/main/LICENSE.md) repo for more information.
-5. Run `haxelib --global install hmm` and then `haxelib --global run hmm setup` to install hmm.json
-6. Run `hmm install` to install all haxelibs of the current branch
-7. Run `haxelib run lime setup` to set up lime
-8. Perform additional platform setup
-   - For Windows, download the [Visual Studio Build Tools](https://aka.ms/vs/17/release/vs_BuildTools.exe)
-        - When prompted, select "Individual Components" and make sure to download the following:
-        - MSVC v143 VS 2022 C++ x64/x86 build tools
-        - Windows 10/11 SDK
-    - Mac: [`lime setup mac` Documentation](https://lime.openfl.org/docs/advanced-setup/macos/)
-    - Linux: [`lime setup linux` Documentation](https://lime.openfl.org/docs/advanced-setup/linux/)
-    - HTML5: Compiles without any extra setup
-9. If you are targeting for native, you may need to run `lime rebuild <PLATFORM>` and `lime rebuild <PLATFORM> -debug`
-10. `lime test <PLATFORM>` to build and launch the game for your platform (for example, `lime test windows`)
+0. The Boring (but Essential) Stuff First
+    - Grab [Haxe](https://haxe.org) - The cool programming language that makes the beep-boop magic happen
+    - Snag [Git](https://www.git-scm.com) - Because we're too fancy for "Download ZIP" (seriously, don't use that button!)
+    - Pro tip: Using that ZIP button is like trying to rap without a microphone. Just don't.
 
-## Build Flags
+1. Time to Get Terminal-ly Cool! 🖥️
+    ```
+    cd path/to/your/awesome/spot
+    ```
+    (Like `cd C:\Users\FunkMaster\Documents` if you're feeling fancy)
 
-There are several useful build flags you can add to a build to affect how it works. A full list can be found in `project.hxp`, but here's information on some of them:
+2. Yoink the Code! 🎵
+    ```
+    git clone https://github.com/imguest24897-alt/FNF-Guest4242Engine.git
+    cd FNF-Guest4242Engine
+    ```
 
-- `-debug` to build the game in debug mode. This automatically enables several useful debug features.
-    - This includes enabling in-game debug functions, disables compile-time optimizations, enabling asset redirection (see below), and enabling the VSCode debug server (which can slow the game on some machines but allows for powerful debugging through breakpoints).
-    - `-DGITHUB_BUILD` will enable in-game debug functions (such as the ability to time travel in a song by pressing `PgUp`/`PgDn`), without enabling the other stuff
-- `-DFEATURE_POLYMOD_MODS` or `-DNO_FEATURE_POLYMOD_MODS` to forcibly enable or disable modding support.
-- `-DREDIRECT_ASSETS_FOLDER` or `-DNO_REDIRECT_ASSETS_FOLDER` to forcibly enable or disable asset redirection.
-    - This feature causes the game to load exported assets from the project's assets folder rather than the exported one. Great for fast iteration, but the game will break if you try to zip it up and send it to someone, so it's disabled for release builds.
-- `-DFEATURE_DISCORD_RPC` or `-DNO_FEATURE_DISCORD_RPC` to forcibly enable or disable support for Discord Rich Presence.
-- `-DFEATURE_VIDEO_PLAYBACK` or `-DNO_FEATURE_VIDEO_PLAYBACK` to forcibly enable or disable video cutscene support.
-- `-DFEATURE_CHART_EDITOR` or `-DNO_FEATURE_CHART_EDITOR` to forcibly enable or disable the chart editor in the Debug menu.
-- `-DFEATURE_SCREENSHOTS` or `-DNO_FEATURE_SCREENSHOTS` to forcibly enable or disable the screenshots feature.
-- `-DFEATURE_STAGE_EDITOR` to forcibly enable the experimental stage editor.
-- `-DFEATURE_GHOST_TAPPING` to forcibly enable an experimental gameplay change to the anti-mash system.
+3. Get Those Sweet, Sweet Assets 🎵
+    ```
+    git submodule update --init --recursive
+    ```
+    (Legal stuff: These assets are more protected than your mom's secret cookie recipe. Check [Funkin.assets LICENSE.md](https://github.com/FunkinCrew/funkin.assets/blob/main/LICENSE.md))
 
-# Troubleshooting
+4. Install the Digital Ingredients 🛠️
+    ```
+    haxelib --global install hmm
+    haxelib --global run hmm setup
+    hmm install
+    haxelib run lime setup
+    ```
 
-If you experience any issues during the compilation process, DO NOT open an issue on GitHub. Instead, check the [Troubleshooting Guide](TROUBLESHOOTING.md) for steps on how to resolve common problems.
+5. Platform Party Time! 🎉
+    - Windows Warriors:
+        - Grab those [Visual Studio Build Tools](https://aka.ms/vs/17/release/vs_BuildTools.exe)
+        - Check these boxes like you're ordering pizza toppings:
+            - MSVC v143 VS 2022 C++ x64/x86 build tools
+            - Windows 10/11 SDK
+    - Mac Maestros: Groove to the [lime setup mac guide](https://lime.openfl.org/docs/advanced-setup/macos/)
+    - Linux Legends: Rock with the [lime setup linux guide](https://lime.openfl.org/docs/advanced-setup/linux/)
+    - HTML5 Heroes: You're already ready! (Lucky you!)
+
+6. For the Native Build Enthusiasts (Optional, but Cool) 😎
+    ```
+    lime rebuild <platform>
+    lime rebuild <platform> -debug
+    ```
+
+7. The Grand Finale - Build and Boogie! 🕺
+    ```
+    lime test <platform>
+    ```
+    Just swap `<platform>` with your flavor (windows/mac/linux/html5)
+
+## Spicy Build Flags 🌶️
+
+Want to make your build extra special? Here are some magical incantations you can use:
+
+- `-debug`: Unleash the debug beast! Perfect for when you want to see how the sausage is made
+    - Includes cool stuff like time travel (PgUp/PgDn in songs)! Use `-DGITHUB_BUILD` if you just want the fun stuff
+- `-DFEATURE_POLYMOD_MODS`: For the mod enthusiasts who can't leave well enough alone
+- `-DREDIRECT_ASSETS_FOLDER`: Makes asset loading faster than a sugar-rushed boyfriend
+- `-DFEATURE_DISCORD_RPC`: Let Discord tell your friends you're busy being funky
+- `-DFEATURE_VIDEO_PLAYBACK`: For when still images just aren't enough
+- `-DFEATURE_CHART_EDITOR`: Create charts that'll make people's fingers cry
+- `-DFEATURE_SCREENSHOTS`: Capture your highest scores (or embarrassing misses)
+- `-DFEATURE_STAGE_EDITOR`: For the brave souls who dare to edit stages
+- `-DFEATURE_GHOST_TAPPING`: When you want to spam keys like a pianist on coffee
+
+# Help! Something's Wrong! 😱
+
+Before you panic and create a GitHub issue (please don't), check out our [Troubleshooting Guide](TROUBLESHOOTING.md). It's like WebMD for your FNF problems, but actually helpful!
