@@ -787,26 +787,26 @@ class PlayState extends MusicBeatSubState
       criticalFailure = true;
 
       // Choose an error message.
-      var message:String = 'There was a critical error. Click OK to return to the main menu.';
+      var message:String = 'Oopsie woopsie! Critical error detected! Click OK to return to the main menu and try again...';
       if (currentSong == null)
       {
-        message = 'There was a critical error loading this song\'s chart. Click OK to return to the main menu.';
+        message = 'Oopsie woopsie! Song chart went ka-boomie! Click OK to go back to the main menu and try again...';
       }
       else if (currentDifficulty == null)
       {
-        message = 'There was a critical error selecting a difficulty for this song. Click OK to return to the main menu.';
+        message = 'Oopsie woopsie! Difficulty went ka-boomie! Click OK to go back to the main menu and try again...';
       }
       else if (currentChart == null)
       {
-        message = 'There was a critical error retrieving data for this song on "$currentDifficulty" difficulty with variation "$currentVariation". Click OK to return to the main menu.';
+        message = 'Oopsie woopsie! Song data went ka-boomie on "$currentDifficulty" difficulty with variation "$currentVariation"! Click OK to go back to the main menu and try again...';
       }
       else if (currentChart.notes == null)
       {
-        message = 'There was a critical error retrieving note data for this song on "$currentDifficulty" difficulty with variation "$currentVariation". Click OK to return to the main menu.';
+        message = 'Oopsie woopsie! Note data went ka-boomie on "$currentDifficulty" difficulty with variation "$currentVariation"! Click OK to go back to the main menu and try again...';
       }
 
       // Display a popup. This blocks the application until the user clicks OK.
-      lime.app.Application.current.window.alert(message, 'Error loading PlayState');
+      lime.app.Application.current.window.alert(message, 'oops... i think playstate breaked');
 
       // Force the user back to the main menu.
       if (isSubState)
@@ -873,7 +873,7 @@ class PlayState extends MusicBeatSubState
 
         if (vocals.members.length == 0)
         {
-          trace('WARNING: No vocals found for this song.');
+          trace('no vocals found!');
         }
       }
       vocals.pause();
@@ -1042,7 +1042,7 @@ class PlayState extends MusicBeatSubState
       if (controls.CHEAT)
       {
         health += 0.25 * Constants.HEALTH_MAX; // +25% health.
-        trace('User is cheating!');
+        trace('stop cheating');
       }
       #end
 
@@ -1934,7 +1934,7 @@ class PlayState extends MusicBeatSubState
 
       if (vocals.members.length == 0)
       {
-        trace('WARNING: No vocals found for this song.');
+        trace('no vocals found...');
       }
     }
 
