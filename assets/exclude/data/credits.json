@@ -17,6 +17,14 @@
       ]
     },
     {
+      "header": "Guest4242 Engine Developers",
+      "body": [
+        { "line": "Guest4242" },
+        { "line": "SkyHighSundae" }
+      ]
+    },
+
+    {
       "header": "Direction and Art Lead",
       "body": [
         { "line": "PhantomArcade" }
@@ -126,7 +134,9 @@
       "header": "Programming",
       "body": [
         { "line": "Eric \"EliteMasterEric\" Myllyoja" },
-        { "line": "fabs" }
+        { "line": "fabs" },
+        { "line": "Guest4242 (guest4242 engine owner)" },
+        { "line": "SkyHighSundae (guest4242 engine co-owner)" }
       ]
     },
     {
@@ -151,6 +161,13 @@
       ]
     },
     {
+      "header": "Notes",
+      "body": [
+        { "line": "FNF Guest4242 Engine is ABSOLUTELY FREE AND OPEN SOURCE ENGINE. IF YOU PAYED FOR IT, ASK THE PUBLISHER TO REVERT YOUR MONEY BACK!!" },
+        { "line": "Report any paid versions of Guest4242 Engine to e7ycm77x@duck.com. Once we respond, the request for paid engine take down was successful." }
+      ]
+    },
+    {
       "header": "Gameplay Design",
       "body": [
         { "line": "PhantomArcade" },
@@ -161,6 +178,13 @@
         { "line": "Emma (MtH)" }
       ]
     },
+    {
+      "header": "HUD",
+      "body": [
+        { "line": "Guest4242" }
+      ]
+    },
+
     {
       "header": "Kickstarter Backer Portal Programming",
       "body": [
@@ -284,6 +308,13 @@
       "body": [
         { "line": "d1ggo" }
 
+      ]
+    },
+    {
+      "header": "Notes",
+      "body": [
+        { "line": "FNF Guest4242 Engine is ABSOLUTELY FREE AND OPEN SOURCE ENGINE. IF YOU PAYED FOR IT, ASK THE PUBLISHER TO REVERT YOUR MONEY BACK!!" },
+        { "line": "Report any paid versions of Guest4242 Engine to e7ycm77x@duck.com. Once we respond, the request for paid engine take down was successful." }
       ]
     }
 

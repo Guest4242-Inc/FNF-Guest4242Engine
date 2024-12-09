@@ -38,6 +38,8 @@ class CreditsState extends MusicBeatState
   static final CREDITS_FONT = 'Segoe UI';
   #elseif mac
   static final CREDITS_FONT = 'Menlo';
+  #elseif linux
+  static final CREDITS_FONT = 'Noto Sans';
   #else
   static final CREDITS_FONT = "System";
   #end

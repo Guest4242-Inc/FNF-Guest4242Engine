@@ -288,21 +288,21 @@ class PauseSubState extends MusicBeatSubState
     metadataSong.setFormat(Paths.font('vcr.ttf'), 32, FlxColor.WHITE, FlxTextAlign.RIGHT);
     if (PlayState.instance?.currentChart != null)
     {
-      metadataSong.text = '${PlayState.instance.currentChart.songName}';
+      metadataSong.text = 'Song name: ${PlayState.instance.currentChart.songName}';
     }
     metadataSong.scrollFactor.set(0, 0);
     metadata.add(metadataSong);
 
-    metadataArtist = new FlxText(20, metadataSong.y + 32, FlxG.width - 40, 'Artist: ${Constants.DEFAULT_ARTIST}');
+    metadataArtist = new FlxText(20, metadataSong.y + 32, FlxG.width - 40, 'Song by ${Constants.DEFAULT_ARTIST}');
     metadataArtist.setFormat(Paths.font('vcr.ttf'), 32, FlxColor.WHITE, FlxTextAlign.RIGHT);
     if (PlayState.instance?.currentChart != null)
     {
-      metadataArtist.text = 'Artist: ${PlayState.instance.currentChart.songArtist}';
+      metadataArtist.text = 'Song by ${PlayState.instance.currentChart.songArtist}';
     }
     metadataArtist.scrollFactor.set(0, 0);
     metadata.add(metadataArtist);
 
-    var metadataDifficulty:FlxText = new FlxText(20, metadataArtist.y + 32, FlxG.width - 40, 'Difficulty: ');
+    var metadataDifficulty:FlxText = new FlxText(20, metadataArtist.y + 32, FlxG.width - 40, 'Playing on difficulty ');
     metadataDifficulty.setFormat(Paths.font('vcr.ttf'), 32, FlxColor.WHITE, FlxTextAlign.RIGHT);
     if (PlayState.instance?.currentDifficulty != null)
     {
@@ -311,12 +311,12 @@ class PauseSubState extends MusicBeatSubState
     metadataDifficulty.scrollFactor.set(0, 0);
     metadata.add(metadataDifficulty);
 
-    metadataDeaths = new FlxText(20, metadataDifficulty.y + 32, FlxG.width - 40, '${PlayState.instance?.deathCounter} Blue Balls');
+    metadataDeaths = new FlxText(20, metadataDifficulty.y + 32, FlxG.width - 40, '${PlayState.instance?.deathCounter} deaths');
     metadataDeaths.setFormat(Paths.font('vcr.ttf'), 32, FlxColor.WHITE, FlxTextAlign.RIGHT);
     metadataDeaths.scrollFactor.set(0, 0);
     metadata.add(metadataDeaths);
 
-    metadataPractice = new FlxText(20, metadataDeaths.y + 32, FlxG.width - 40, 'PRACTICE MODE');
+    metadataPractice = new FlxText(20, metadataDeaths.y + 32, FlxG.width - 40, 'Practice mode status: ON');
     metadataPractice.setFormat(Paths.font('vcr.ttf'), 32, FlxColor.WHITE, FlxTextAlign.RIGHT);
     metadataPractice.visible = PlayState.instance?.isPracticeMode ?? false;
     metadataPractice.scrollFactor.set(0, 0);
@@ -336,11 +336,11 @@ class PauseSubState extends MusicBeatSubState
         onComplete: (_) -> {
           if (PlayState.instance?.currentChart != null)
           {
-            metadataArtist.text = 'Charter: ${PlayState.instance.currentChart.charter ?? 'Unknown'}';
+            metadataArtist.text = 'Chart by ${PlayState.instance.currentChart.charter ?? 'I dunno!'}';
           }
           else
           {
-            metadataArtist.text = 'Charter: ${Constants.DEFAULT_CHARTER}';
+            metadataArtist.text = 'Chart by ${Constants.DEFAULT_CHARTER}';
           }
 
           FlxTween.tween(metadataArtist, {alpha: 1.0}, CHARTER_FADE_DURATION,
@@ -363,11 +363,11 @@ class PauseSubState extends MusicBeatSubState
         onComplete: (_) -> {
           if (PlayState.instance?.currentChart != null)
           {
-            metadataArtist.text = 'Artist: ${PlayState.instance.currentChart.songArtist}';
+            metadataArtist.text = 'Song by ${PlayState.instance.currentChart.songArtist}';
           }
           else
           {
-            metadataArtist.text = 'Artist: ${Constants.DEFAULT_ARTIST}';
+            metadataArtist.text = 'Song by ${Constants.DEFAULT_ARTIST}';
           }
 
           FlxTween.tween(metadataArtist, {alpha: 1.0}, CHARTER_FADE_DURATION,
@@ -525,7 +525,7 @@ class PauseSubState extends MusicBeatSubState
         if (PlayState.instance.currentChart != null)
         {
           var difficultiesInVariation = PlayState.instance.currentSong.listDifficulties(PlayState.instance.currentChart.variation, true);
-          trace('DIFFICULTIES: ${difficultiesInVariation}');
+          trace('Loaded difficulties "${difficultiesInVariation}".');
           for (difficulty in difficultiesInVariation)
           {
             entries.push({text: difficulty.toTitleCase(), callback: (state) -> changeDifficulty(state, difficulty)});
@@ -601,11 +601,11 @@ class PauseSubState extends MusicBeatSubState
       case Standard | Difficulty:
         metadataDeaths.text = '${PlayState.instance?.deathCounter} deaths';
       case Charting:
-        metadataDeaths.text = 'Playtesting Mode | Chart Editor';
+        metadataDeaths.text = 'Charting mode';
       case Conversation:
-        metadataDeaths.text = 'Dialogue Pause';
+        metadataDeaths.text = 'Dialogue';
       case Cutscene:
-        metadataDeaths.text = 'Video Pause';
+        metadataDeaths.text = 'Video Paused';
     }
   }
 
