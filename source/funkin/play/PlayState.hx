@@ -994,7 +994,7 @@ class PlayState extends MusicBeatSubState
         #if FEATURE_DISCORD_RPC
         DiscordClient.instance.setPresence(
           {
-            details: 'Paused - ${buildDiscordRPCDetails()}',
+            details: 'Currently paused - ${buildDiscordRPCDetails()}',
 
             state: buildDiscordRPCState(),
 
@@ -1091,7 +1091,7 @@ class PlayState extends MusicBeatSubState
         #if FEATURE_DISCORD_RPC
         DiscordClient.instance.setPresence(
           {
-            details: 'Game Over - ${buildDiscordRPCDetails()}',
+            details: 'i lose :( - ${buildDiscordRPCDetails()}',
             state: buildDiscordRPCState(),
 
             largeImageKey: discordRPCAlbum,
@@ -1205,6 +1205,14 @@ class PlayState extends MusicBeatSubState
     // Dispatch event to conversation script.
     ScriptEventDispatcher.callEvent(currentConversation, event);
   }
+
+  #if FEATURE_CRASH_ON_MISS
+  public function crashOnMiss():Void
+  {
+    trace("you missed lol.");
+    Sys.exit(0);
+  }
+  #end
 
   /**
      * Function called before opening a new substate.
@@ -2787,6 +2795,9 @@ class PlayState extends MusicBeatSubState
         Highscore.tallies.shit += 1;
       case 'miss':
         Highscore.tallies.missed += 1;
+        #if FEATURE_CRASH_ON_MISS
+          crashOnMiss();
+        #end
     }
     health += healthChange;
     if (isComboBreak)
