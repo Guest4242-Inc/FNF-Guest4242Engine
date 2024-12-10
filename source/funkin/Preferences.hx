@@ -18,9 +18,12 @@ class Preferences
     #if web
     return 60;
     #else
-    return Save?.instance?.options?.framerate ?? 60;
+    return Save?.instance?.options?.framerate ?? 120;
     #end
   }
+
+  public static var crashonmiss:Bool = false;
+  public static var botplay:Bool = false;
 
   static function set_framerate(value:Int):Int
   {

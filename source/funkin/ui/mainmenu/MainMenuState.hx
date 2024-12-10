@@ -55,7 +55,7 @@ class MainMenuState extends MusicBeatState
   override function create():Void
   {
     #if FEATURE_DISCORD_RPC
-    DiscordClient.instance.setPresence({state: "In the Menus", details: null});
+    DiscordClient.instance.setPresence({state: "In the Main Menu", details: null});
     #end
 
     FlxG.cameras.reset(new FunkinCamera('mainMenu'));
@@ -169,11 +169,11 @@ class MainMenuState extends MusicBeatState
     super.create();
 
     // This has to come AFTER!
-    this.leftWatermarkText.text = 'Guest4242 Engine v0.0.2 Beta, Friday Night Funkin\' v0.5.3';
+    this.leftWatermarkText.text = 'Guest4242 Engine v0.0.2 Beta';
     // ge stands for guest4242 engine
     // b stands for beta
     // a stands for alpha
-    this.rightWatermarkText.text = 'GE v0.0.2B';
+    this.rightWatermarkText.text = 'Friday Night Funkin\' v0.5.3';
   }
 
   function playMenuMusic():Void

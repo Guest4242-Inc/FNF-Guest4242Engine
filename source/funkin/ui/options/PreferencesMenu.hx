@@ -57,6 +57,12 @@ class PreferencesMenu extends Page
     createPrefItemCheckbox('Naughtyness on screen', 'Toggle displaying raunchy content. Do not enable if you remember having seizures.', function(value:Bool):Void {
       Preferences.naughtyness = value;
     }, Preferences.naughtyness);
+    createPrefItemCheckbox('Crash on Miss', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', (value) -> {
+        Preferences.crashonmiss = value;
+    }, Preferences.crashonmiss);
+    createPrefItemCheckbox('Botplay', 'Let your fingers be free outside while bot will play songs for you.', (value) -> {
+        Preferences.botplay = value;
+    }, Preferences.botplay);
     createPrefItemCheckbox('Downscroll', 'Move notes downwards instead of upwards', function(value:Bool):Void {
       Preferences.downscroll = value;
     }, Preferences.downscroll);

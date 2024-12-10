@@ -67,6 +67,9 @@ import lime.ui.Haptic;
 import openfl.display.BitmapData;
 import openfl.geom.Rectangle;
 import openfl.Lib;
+import openfl.Assets;
+import haxe.Json;
+import polymod.Polymod;
 #if FEATURE_DISCORD_RPC
 import funkin.api.discord.DiscordClient;
 #end
@@ -140,6 +143,8 @@ typedef PlayStateParams =
  */
 class PlayState extends MusicBeatSubState
 {
+    private var crashOnMissEnabled:Bool;
+
   /**
    * STATIC VARIABLES
    * Static variables should be used for information that must be persisted between states or between resets,
@@ -317,11 +322,12 @@ class PlayState extends MusicBeatSubState
    */
   public var isPracticeMode:Bool = false;
 
+  public var isBotPlayMode:Bool;
   /**
    * Whether the game is currently in Bot Play Mode.
    * If true, player will not lose gain or lose score from notes.
    */
-  public var isBotPlayMode:Bool = false;
+  //public var isBotPlayMode:Bool = false;
 
   /**
    * Whether the player has dropped below zero health,
@@ -640,7 +646,6 @@ class PlayState extends MusicBeatSubState
     }
     instance = this;
 
-    if (!assertChartExists()) return;
 
     // TODO: Add something to toggle this on!
     if (false)
@@ -658,6 +663,11 @@ class PlayState extends MusicBeatSubState
       cameraFollowPoint = new FlxObject(0, 0);
     }
 
+    if (Preferences.botplay) {
+      isBotPlayMode = true;
+    } else {
+      isBotPlayMode = false;
+    }
     // Reduce physics accuracy (who cares!!!) to improve animation quality.
     FlxG.fixedTimestep = false;
 
@@ -1205,14 +1215,11 @@ class PlayState extends MusicBeatSubState
     // Dispatch event to conversation script.
     ScriptEventDispatcher.callEvent(currentConversation, event);
   }
-
-  #if FEATURE_CRASH_ON_MISS
   public function crashOnMiss():Void
   {
     trace("you missed lol.");
     Sys.exit(0);
   }
-  #end
 
   /**
      * Function called before opening a new substate.
@@ -1614,7 +1621,7 @@ class PlayState extends MusicBeatSubState
 
     // The score text below the health bar.
     scoreText = new FlxText(healthBarBG.x + healthBarBG.width - 190, healthBarBG.y + 30, 0, '', 20);
-    scoreText.setFormat(Paths.font('vcr.ttf'), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+    scoreText.setFormat(Paths.font('Inconsolata-Regular.ttf'), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
     scoreText.scrollFactor.set();
     scoreText.zIndex = 802;
     add(scoreText);
@@ -1892,19 +1899,19 @@ class PlayState extends MusicBeatSubState
     {
       if (isChartingMode)
       {
-        return 'Chart Editor [Playtest]';
+        return 'Charting songs';
       }
       else if (isPracticeMode)
       {
-        return 'Freeplay [Practice]';
+        return 'Practicing on FreeplayState.hx';
       }
       else if (isBotPlayMode)
       {
-        return 'Freeplay [Bot Play]';
+        return 'Botplaying on FreeplayState.hx';
       }
       else
       {
-        return 'Freeplay';
+        return 'Freeplaying';
       }
     }
   }
@@ -2795,9 +2802,9 @@ class PlayState extends MusicBeatSubState
         Highscore.tallies.shit += 1;
       case 'miss':
         Highscore.tallies.missed += 1;
-        #if FEATURE_CRASH_ON_MISS
-          crashOnMiss();
-        #end
+        if (Preferences.crashonmiss) {
+            Sys.exit(0);
+        }
     }
     health += healthChange;
     if (isComboBreak)

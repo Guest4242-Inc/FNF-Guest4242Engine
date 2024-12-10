@@ -30,7 +30,7 @@ import funkin.api.discord.DiscordClient;
 
 class StoryMenuState extends MusicBeatState
 {
-  static final DEFAULT_BACKGROUND_COLOR:FlxColor = FlxColor.fromString('#F9CF51');
+  static final DEFAULT_BACKGROUND_COLOR:FlxColor = FlxColor.fromString('#51BEF9');
   static final BACKGROUND_HEIGHT:Int = 400;
 
   var currentDifficultyId:String = 'normal';
@@ -221,7 +221,7 @@ class StoryMenuState extends MusicBeatState
 
     #if FEATURE_DISCORD_RPC
     // Updating Discord Rich Presence
-    DiscordClient.instance.setPresence({state: 'In the Menus', details: null});
+    DiscordClient.instance.setPresence({state: 'Choosing a week', details: null});
     #end
   }
 

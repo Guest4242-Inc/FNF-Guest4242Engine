@@ -276,7 +276,7 @@ class FreeplayState extends MusicBeatSubState
 
     #if FEATURE_DISCORD_RPC
     // Updating Discord Rich Presence
-    DiscordClient.instance.setPresence({state: 'In the Freeplay Menu', details: null});
+    DiscordClient.instance.setPresence({state: 'Freeplaying', details: null});
     #end
 
     var isDebug:Bool = false;
