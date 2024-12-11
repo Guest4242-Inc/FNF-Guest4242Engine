@@ -2177,7 +2177,7 @@ class PlayState extends MusicBeatSubState
       // TODO: Add an option for this maybe?
       var commaSeparated:Bool = true;
       var tallies = PlayStatePlaylist.isStoryMode ? Highscore.talliesLevel : Highscore.tallies;
-      scoreText.text = 'Score: ${FlxStringUtil.formatMoney(songScore, false, commaSeparated)}\nCombo: ${tallies.combo}\nCombo Breaks: ${tallies.missed}';
+      scoreText.text = 'Score: ${FlxStringUtil.formatMoney(songScore, false, commaSeparated)}\nCombo: ${tallies.combo}\nCombo Breaks: ${tallies.missed}\nNotes hit: ${tallies.totalNotesHit}/${tallies.totalNotes}';
     }
   }
 
@@ -2192,7 +2192,11 @@ class PlayState extends MusicBeatSubState
     }
     else
     {
-      healthLerp = FlxMath.lerp(healthLerp, health, 0.15);
+      if (Preferences.disalbesmoothheatlhbar) {
+        healthLerp = FlxMath.lerp(healthLerp, health, 0.97);
+      } else {
+        healthLerp = FlxMath.lerp(healthLerp, health, 0.15);
+      }
     }
   }
 

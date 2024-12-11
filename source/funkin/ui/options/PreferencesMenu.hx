@@ -54,6 +54,12 @@ class PreferencesMenu extends Page
    */
   function createPrefItems():Void
   {
+    createPrefItemCheckbox('Ghost tapping (this setting not implemented)', "Press keys while there is no arrows out there on BF's camera side", (value) -> {
+        Preferences.ghosttapping = value;
+    }, Preferences.ghosttapping);
+    createPrefItemCheckbox('Disable smooth heatlhbar transition', "Because why not", (value) -> {
+        Preferences.disalbesmoothheatlhbar = value;
+    }, Preferences.disalbesmoothheatlhbar);
     createPrefItemCheckbox('Naughtyness on screen', 'Toggle displaying raunchy content. Do not enable if you remember having seizures.', function(value:Bool):Void {
       Preferences.naughtyness = value;
     }, Preferences.naughtyness);
@@ -86,7 +92,7 @@ class PreferencesMenu extends Page
     #else
     createPrefItemNumber('FPS', 'The maximum framerate aka FPS that the game targets', function(value:Float) {
       Preferences.framerate = Std.int(value);
-    }, null, Preferences.framerate, 30, 300, 5, 0);
+    }, null, Preferences.framerate, 30, 1000, 5, 0);
     #end
   }
 
@@ -94,7 +100,7 @@ class PreferencesMenu extends Page
   {
     super.update(elapsed);
 
-    // Indent the selected item.
+    // Indent the selected item.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
     items.forEach(function(daItem:TextMenuItem) {
       var thyOffset:Int = 0;
       // Initializing thy text width (if thou text present)

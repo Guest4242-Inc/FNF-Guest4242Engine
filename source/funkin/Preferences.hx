@@ -24,6 +24,8 @@ class Preferences
 
   public static var crashonmiss:Bool = false;
   public static var botplay:Bool = false;
+  public static var ghosttapping:Bool = true;
+  public static var disalbesmoothheatlhbar = true;
 
   static function set_framerate(value:Int):Int
   {
