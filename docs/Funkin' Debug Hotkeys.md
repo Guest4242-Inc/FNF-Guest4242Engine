@@ -11,9 +11,9 @@ Most of this functionality is only available on debug builds of the game!
 
 ## **Play State**
 - `H`: ***HIDE UI***: Makes the user interface invisible. Works in Pause Menu, great for screenshots.
-- `1`: ***END SONG***: Immediately ends the song and moves to Results Screen on Freeplay, or next song on Story Mode.
-- `2`: ***GAIN HEALTH***: Debug function, add 10% to the player's health.
-- `3`: ***LOSE HEALTH***: Debug function, subtract 5% to the player's health.
+- `E`: ***END SONG***: Immediately ends the song and moves to Results Screen on Freeplay, or next song on Story Mode.
+- `G`: ***GAIN HEALTH***: Debug function, add 10% to the player's health.
+- `L`: ***LOSE HEALTH***: Debug function, subtract 5% to the player's health.
 - `9`: NEATO!
 - `PAGEUP` (MacOS: `Fn-Up`): ***FORWARDS TIME TRAVEL***: Move forward by 2 sections. Hold SHIFT to move forward by 20 sections instead.
 - `PAGEDOWN` (MacOS: `Fn-Down`): ***BACKWARDS TIME TRAVEL***: Move backward by 2 sections. Hold SHIFT to move backward by 20 sections instead.
