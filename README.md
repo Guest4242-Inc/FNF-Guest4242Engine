@@ -1,8 +1,6 @@
 # Friday Night Funkin' Guest4242 Engine
 
 Friday Night Funkin' is a rhythm game. Built using HaxeFlixel for Ludum Dare 47.
-<br>
-i kinda forgot that this exists...this engine will remain dead until i get this engine to compile properly
 ## Warning!!!
 This engine is in beta, and I am bad at Haxe coding. Code is spaghetti.
 ## notice after switching to psych engine base
