@@ -9,6 +9,8 @@ shitAudio/
 .build_time
 .swp
 lib/
+.vscode/
+.idea/
 
 # Exclude JS stuff
 node_modules/
