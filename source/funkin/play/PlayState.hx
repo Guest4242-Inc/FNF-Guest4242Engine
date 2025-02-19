@@ -2180,7 +2180,7 @@ class PlayState extends MusicBeatSubState
       // TODO: Add an option for this maybe?
       var commaSeparated:Bool = true;
       var tallies = PlayStatePlaylist.isStoryMode ? Highscore.talliesLevel : Highscore.tallies;
-      scoreText.text = 'Score: ${FlxStringUtil.formatMoney(songScore, false, commaSeparated)}\nCombo: ${tallies.combo}\nCombo Breaks: ${tallies.missed}\nNotes hit: ${tallies.totalNotesHit}/${tallies.totalNotes}';
+      scoreText.text = 'Score: ${FlxStringUtil.formatMoney(songScore, false, commaSeparated)}\nCombo: ${tallies.combo} | ${tallies.maxCombo}\nCombo Breaks: ${tallies.missed}\nNotes hit: ${tallies.totalNotesHit}/${tallies.totalNotes}';
     }
   }
 

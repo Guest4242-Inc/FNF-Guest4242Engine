@@ -55,29 +55,34 @@ class PreferencesMenu extends Page
   function createPrefItems():Void
   {
     createPrefItemCheckbox('Ghost tapping (this setting not implemented)', "Press keys while there is no arrows out there on BF's camera side", (value) -> {
-        Preferences.ghosttapping = value;
+      Preferences.ghosttapping = value;
     }, Preferences.ghosttapping);
     createPrefItemCheckbox('Disable smooth heatlhbar transition', "Because why not", (value) -> {
-        Preferences.disalbesmoothheatlhbar = value;
+      Preferences.disalbesmoothheatlhbar = value;
     }, Preferences.disalbesmoothheatlhbar);
-    createPrefItemCheckbox('Naughtyness on screen', 'Toggle displaying raunchy content. Do not enable if you remember having seizures.', function(value:Bool):Void {
-      Preferences.naughtyness = value;
-    }, Preferences.naughtyness);
+    createPrefItemCheckbox('Naughtyness on screen', 'Toggle displaying raunchy content. Do not enable if you remember having seizures.',
+      function(value:Bool):Void {
+        Preferences.naughtyness = value;
+      }, Preferences.naughtyness);
     createPrefItemCheckbox('Crash on Miss', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', (value) -> {
-        Preferences.crashonmiss = value;
+      Preferences.crashonmiss = value;
     }, Preferences.crashonmiss);
     createPrefItemCheckbox('Botplay', 'Let your fingers be free outside while bot will play songs for you.', (value) -> {
-        Preferences.botplay = value;
+      Preferences.botplay = value;
     }, Preferences.botplay);
     createPrefItemCheckbox('Downscroll', 'Move notes downwards instead of upwards', function(value:Bool):Void {
       Preferences.downscroll = value;
     }, Preferences.downscroll);
+    createPrefItemCheckbox('Multiplayer Mode', 'Play with your friends :)', function(value:Bool):Void {
+      Preferences.multiplayer = value;
+    }, Preferences.multiplayer);
     createPrefItemCheckbox('Flashbangs', 'Disable to dampen flashing effects, useful for people with photosensitive epilepsy', function(value:Bool):Void {
       Preferences.flashingLights = value;
     }, Preferences.flashingLights);
-    createPrefItemCheckbox('Camera bopping on beat', 'Disable to stop the camera bouncing to the song. Might make the game easier.', function(value:Bool):Void {
-      Preferences.zoomCamera = value;
-    }, Preferences.zoomCamera);
+    createPrefItemCheckbox('Camera bopping on beat', 'Disable to stop the camera bouncing to the song. Might make the game easier.',
+      function(value:Bool):Void {
+        Preferences.zoomCamera = value;
+      }, Preferences.zoomCamera);
     createPrefItemCheckbox('Debugguing display', 'Enable to show FPS and other debug stats (could be buggy)', function(value:Bool):Void {
       Preferences.debugDisplay = value;
     }, Preferences.debugDisplay);

@@ -22,10 +22,11 @@ class Preferences
     #end
   }
 
-  public static var crashonmiss:Bool = false;
-  public static var botplay:Bool = false;
+  public static var crashonmiss:Bool;
+  public static var botplay:Bool;
   public static var ghosttapping:Bool = true;
-  public static var disalbesmoothheatlhbar = true;
+  public static var disalbesmoothheatlhbar:Bool;
+  public static var multiplayer:Bool;
 
   static function set_framerate(value:Int):Int
   {

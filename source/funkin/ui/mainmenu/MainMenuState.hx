@@ -169,7 +169,7 @@ class MainMenuState extends MusicBeatState
     super.create();
 
     // This has to come AFTER!
-    this.leftWatermarkText.text = 'Guest4242 Engine v0.0.2 Beta';
+    this.leftWatermarkText.text = 'Guest4242 Engine v0.0.3 Beta 1';
     // ge stands for guest4242 engine
     // b stands for beta
     // a stands for alpha

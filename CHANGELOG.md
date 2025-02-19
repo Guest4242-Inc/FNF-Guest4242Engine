@@ -5,6 +5,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 --- Guest4242 Engine ---
+## [0.0.3 Beta 1] - 2025-02-19
+### Added
+- Added a multiplayer mode so you can play with your friends! :D (buggy through)
+- Max combo between the combo added (before - Combo: 12, now: Combo: 18 | 36)
+### Note
+- Public beta builds of 0.0.3 use debug mode by default, so you will probably experience a lot of glitches (if you got this version from github releases)
 ## [0.0.2] - 2024-11-07
 ### Fixed
 - Fixed a bug with the camera, it should work better now.
