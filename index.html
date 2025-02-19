@@ -24,11 +24,25 @@
   .button:hover {
     background: #45a049; /* Darker Green */
   }
+
+  .screenshot {
+    transition: border-radius 0.3s ease, transform 0.3s ease;
+    transform: scale(1);
+    border-radius: 5px;
+  }
+  .screenshot:hover {
+    -webkit-transition: border-radius 0.3s ease, transform 0.3s ease;
+    -moz-transition: border-radius 0.3s ease, transform 0.3s ease;
+    -o-transition: border-radius 0.3s ease, transform 0.3s ease;
+    transition: border-radius 0.3s ease, transform 0.3s ease;
+    transform: scale(1.3);
+    border-radius: 30px;
+  }
 </style>
 <body>
   <h1>GET READY FOR THE ULTIMATE FNF ENGINE</h1>
   <h3>FNF Guest4242 Engine</h3>
-  <img src="screenshots/screenshot-2025-02-19-10-32-13.png" alt="Screenshot" />
+  <div class="screenshot"><img src="screenshots/screenshot-2025-02-19-10-32-13.png" alt="Screenshot" /></div>
   <br>
   <br>
   <button class="button">
