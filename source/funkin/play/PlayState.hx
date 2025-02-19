@@ -143,7 +143,7 @@ typedef PlayStateParams =
  */
 class PlayState extends MusicBeatSubState
 {
-    private var crashOnMissEnabled:Bool;
+  private var crashOnMissEnabled:Bool;
 
   /**
    * STATIC VARIABLES
@@ -323,11 +323,12 @@ class PlayState extends MusicBeatSubState
   public var isPracticeMode:Bool = false;
 
   public var isBotPlayMode:Bool;
+
   /**
    * Whether the game is currently in Bot Play Mode.
    * If true, player will not lose gain or lose score from notes.
    */
-  //public var isBotPlayMode:Bool = false;
+  // public var isBotPlayMode:Bool = false;
 
   /**
    * Whether the player has dropped below zero health,
@@ -646,7 +647,6 @@ class PlayState extends MusicBeatSubState
     }
     instance = this;
 
-
     // TODO: Add something to toggle this on!
     if (false)
     {
@@ -663,9 +663,12 @@ class PlayState extends MusicBeatSubState
       cameraFollowPoint = new FlxObject(0, 0);
     }
 
-    if (Preferences.botplay) {
+    if (Preferences.botplay)
+    {
       isBotPlayMode = true;
-    } else {
+    }
+    else
+    {
       isBotPlayMode = false;
     }
     // Reduce physics accuracy (who cares!!!) to improve animation quality.
@@ -1215,6 +1218,7 @@ class PlayState extends MusicBeatSubState
     // Dispatch event to conversation script.
     ScriptEventDispatcher.callEvent(currentConversation, event);
   }
+
   public function crashOnMiss():Void
   {
     trace("you missed lol.");
@@ -2020,7 +2024,6 @@ class PlayState extends MusicBeatSubState
      * Ends any running cutscenes, creates the strumlines, and starts the countdown.
      * This is public so that scripts can call it.
      */
-
   public function startCountdown():Void
   {
     // If Countdown.performCountdown returns false, then the countdown was canceled by a script.
@@ -2192,9 +2195,12 @@ class PlayState extends MusicBeatSubState
     }
     else
     {
-      if (Preferences.disalbesmoothheatlhbar) {
+      if (Preferences.disalbesmoothheatlhbar)
+      {
         healthLerp = FlxMath.lerp(healthLerp, health, 0.97);
-      } else {
+      }
+      else
+      {
         healthLerp = FlxMath.lerp(healthLerp, health, 0.15);
       }
     }
@@ -2549,10 +2555,8 @@ class PlayState extends MusicBeatSubState
     while (inputReleaseQueue.length > 0)
     {
       var input:PreciseInputEvent = inputReleaseQueue.shift();
-
       // Play the strumline animation.
       playerStrumline.playStatic(input.noteDirection);
-
       playerStrumline.releaseKey(input.noteDirection);
     }
   }
@@ -2806,8 +2810,9 @@ class PlayState extends MusicBeatSubState
         Highscore.tallies.shit += 1;
       case 'miss':
         Highscore.tallies.missed += 1;
-        if (Preferences.crashonmiss) {
-            Sys.exit(0);
+        if (Preferences.crashonmiss)
+        {
+          Sys.exit(0);
         }
     }
     health += healthChange;
@@ -2941,14 +2946,15 @@ class PlayState extends MusicBeatSubState
     fade.cameras = [camCutscene];
     add(fade);
 
-    FlxTween.tween(fade, {alpha: 1}, 0.5, {
-      ease: FlxEase.quartInOut,
-      onComplete: function(_) {
-        VideoCutscene.finishVideo();
-        remove(fade);
-        fade.destroy();
-      }
-    });
+    FlxTween.tween(fade, {alpha: 1}, 0.5,
+      {
+        ease: FlxEase.quartInOut,
+        onComplete: function(_) {
+          VideoCutscene.finishVideo();
+          remove(fade);
+          fade.destroy();
+        }
+      });
   }
 
   /**
