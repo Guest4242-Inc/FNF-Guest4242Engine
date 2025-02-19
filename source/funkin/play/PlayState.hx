@@ -1218,6 +1218,7 @@ class PlayState extends MusicBeatSubState
   public function crashOnMiss():Void
   {
     trace("you missed lol.");
+    // please comment the next line is you plan to do a html5/flash build:
     Sys.exit(0);
   }
 
@@ -2176,7 +2177,7 @@ class PlayState extends MusicBeatSubState
       // TODO: Add an option for this maybe?
       var commaSeparated:Bool = true;
       var tallies = PlayStatePlaylist.isStoryMode ? Highscore.talliesLevel : Highscore.tallies;
-      scoreText.text = 'Score: ${FlxStringUtil.formatMoney(songScore, false, commaSeparated)}\nCombo: ${tallies.combo} | ${tallies.maxCombo}\nCombo Breaks: ${tallies.missed}\nNotes hit: ${tallies.totalNotesHit}/${tallies.totalNotes}';
+      scoreText.text = 'Score: ${FlxStringUtil.formatMoney(songScore, true, commaSeparated)}\nCombo: ${tallies.combo} | ${tallies.maxCombo}\nCombo Breaks: ${tallies.missed}\nNotes hit: ${tallies.totalNotesHit}/${tallies.totalNotes}';
     }
   }
 
@@ -2808,7 +2809,7 @@ class PlayState extends MusicBeatSubState
         Highscore.tallies.missed += 1;
         if (Preferences.crashonmiss)
         {
-          Sys.exit(0);
+          crashOnMiss();
         }
     }
     health += healthChange;
