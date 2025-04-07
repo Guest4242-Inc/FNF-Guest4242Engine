@@ -2177,7 +2177,7 @@ class PlayState extends MusicBeatSubState
     {
       if (Preferences.disalbesmoothheatlhbar)
       {
-        healthLerp = FlxMath.lerp(healthLerp, health, 0.97);
+        healthLerp = health;
       }
       else
       {
