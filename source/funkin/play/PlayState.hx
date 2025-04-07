@@ -955,58 +955,41 @@ class PlayState extends MusicBeatSubState
     #end
 
     // Attempt to pause the game.
-    if ((controls.PAUSE || androidPause) && isInCountdown && mayPauseGame && !justUnpaused)
+    if (controls.PAUSE && isInCountdown && mayPauseGame && !justUnpaused)
     {
       var event = new PauseScriptEvent(FlxG.random.bool(1 / 1000));
-
       dispatchEvent(event);
 
       if (!event.eventCanceled)
       {
-        // Pause updates while the substate is open, preventing the game state from advancing.
         persistentUpdate = false;
-        // Enable drawing while the substate is open, allowing the game state to be shown behind the pause menu.
         persistentDraw = true;
 
-        // There is a 1/1000 change to use a special pause menu.
-        // This prevents the player from resuming, but that's the point.
-        // It's a reference to Gitaroo Man, which doesn't let you pause the game.
         if (!isSubState && event.gitaroo)
         {
-          this.remove(currentStage);
           FlxG.switchState(() -> new GitarooPause(
             {
               targetSong: currentSong,
               targetDifficulty: currentDifficulty,
-              targetVariation: currentVariation,
+              targetVariation: currentVariation
             }));
         }
         else
         {
-          var boyfriendPos:FlxPoint = new FlxPoint(0, 0);
-
-          // Prevent the game from crashing if Boyfriend isn't present.
-          if (currentStage != null && currentStage.getBoyfriend() != null)
-          {
-            boyfriendPos = currentStage.getBoyfriend().getScreenPosition();
-          }
-
-          var pauseSubState:FlxSubState = new PauseSubState({mode: isChartingMode ? Charting : Standard});
+          var boyfriendPos = currentStage?.getBoyfriend()?.getScreenPosition() ?? new FlxPoint(0, 0);
+          var pauseSubState = new PauseSubState({mode: isChartingMode ? Charting : Standard});
 
           FlxTransitionableState.skipNextTransIn = true;
           FlxTransitionableState.skipNextTransOut = true;
           pauseSubState.camera = camCutscene;
           openSubState(pauseSubState);
-          // boyfriendPos.put(); // TODO: Why is this here?
         }
 
         #if FEATURE_DISCORD_RPC
         DiscordClient.instance.setPresence(
           {
             details: 'Currently paused - ${buildDiscordRPCDetails()}',
-
             state: buildDiscordRPCState(),
-
             largeImageKey: discordRPCAlbum,
             smallImageKey: discordRPCIcon
           });
@@ -1219,7 +1202,7 @@ class PlayState extends MusicBeatSubState
   {
     trace("you missed lol.");
     // please comment the next line is you plan to do a html5/flash build:
-    Sys.exit(0);
+    // Sys.exit(0);
   }
 
   /**
