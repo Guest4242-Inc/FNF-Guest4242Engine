@@ -170,7 +170,7 @@ class MainMenuState extends MusicBeatState
 
     // This has to come AFTER!
     #if FEATURE_DEBUG_FUNCTIONS
-    this.leftWatermarkText.text = 'Guest4242 Engine v0.0.3 Beta 1 [DEBUG BUILD!!]';
+    this.leftWatermarkText.text = 'Guest4242 Engine v0.0.3 Beta 1 [SOME SILLY DEBUG FUNCTIONS ENABLED LOL]';
     #else
     this.leftWatermarkText.text = 'Guest4242 Engine v0.0.3 Beta 1';
     #end

@@ -2147,21 +2147,33 @@ class PlayState extends MusicBeatSubState
      */
   function updateScoreText():Void
   {
-    // TODO: Add functionality for modules to update the score text.
+    // Time to update the score display, because we all know how much you love numbers.
     if (isBotPlayMode)
     {
-      // TODO: Add an option for this maybe?
+      // BOTPLAY mode activated! Let the robots have their fun.
       var commaSeparated:Bool = true;
       var tallies = PlayStatePlaylist.isStoryMode ? Highscore.talliesLevel : Highscore.tallies;
-      scoreText.text = 'BOTPLAY';
+      scoreText.text = 'BOTPLAY'; // The bots are winning, obviously.
+      scoreText.setFormat(null, 24); // Adjust 24 to your 'bigger is better' preference
     }
     else
     {
-      // TODO: Add an option for this maybe?
+      // Now let’s make sure those scores get all fancy, because who doesn't love a good combo?
       var commaSeparated:Bool = true;
       var tallies = PlayStatePlaylist.isStoryMode ? Highscore.talliesLevel : Highscore.tallies;
-      scoreText.text = 'Score: ${FlxStringUtil.formatMoney(songScore, true, commaSeparated)}\nCombo: ${tallies.combo} | ${tallies.maxCombo}\nCombo Breaks: ${tallies.missed}\nNotes hit: ${tallies.totalNotesHit}/${tallies.totalNotes}';
+      scoreText.text = 'Score: ${FlxStringUtil.formatMoney(songScore, true, commaSeparated)} - Combo: ${tallies.combo} | ${tallies.maxCombo} - Combo Breaks: ${tallies.missed} - Notes hit: ${tallies.totalNotesHit}/${tallies.totalNotes}';
+      // Time to pump up the text size, because who wants tiny text? Not you.
+      scoreText.setFormat(null, 15);
     }
+
+    // And now, let’s center the text horizontally, because who needs to read off to the side?
+    scoreText.setPosition((FlxG.width - scoreText.width) / 2, scoreText.y); // Perfectly centered like your last snack break.
+    if (scoreText.y == 0)
+    {
+      scoreText.setPosition((FlxG.width - scoreText.width) / 2, -20); // Move it down by 50 pixels (adjust as needed)
+    }
+    // Make sure the score text is always on top, because it's the star of the show.
+    scoreText.zIndex = 999999; // Set this to a high number to ensure it's on top of everything else.
   }
 
   /**
