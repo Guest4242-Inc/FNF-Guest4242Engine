@@ -5,6 +5,7 @@ Welcome to the **Friday Night Funkin' Guest4242 Engine**! The rhythm game you’
 ## ⚠️ Warning: Proceed With Caution ⚠️
 
 This engine is **in beta** and I’m **bad at Haxe coding**. Seriously, don’t expect perfection. The code is like spaghetti—good luck finding the meatballs.
+Oh and also this is deprecated and theres a remastered version take a look at this https://github.com/Guest4242-Inc/FNF-Guest4242Engine-Remastered
 
 But hey, it’s made with **love** for Newgrounds and the entire community. Extra love goes to **Tom Fulp** for being a total legend.
 
